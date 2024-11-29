@@ -20,10 +20,16 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json())
-const corsOptions = {
-    origin:"http://localhost:3000",
-    credentials:true
-}
+// const corsOptions = {
+//     origin:"http://localhost:3000",
+//     credentials:true
+// }
+
+app.use(cors({
+    origin: 'https://cheerful-otter-e40c39.netlify.app',
+    credentials: true
+}));
+
 app.use(cors(corsOptions));
 
 app.get('/', (req, res) => {
